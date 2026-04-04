@@ -11,7 +11,22 @@
             padding: 20px;
             color: white;
         }
-
+       .top-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .top-button:hover {
+            background-color: #2980b9;
+        }
         h1 {
             text-align: center;
             margin-bottom: 10px;
