@@ -50,6 +50,12 @@
       <strong>Applications:</strong>
       <ul class="element-applications"></ul>
     </div>
+
+  <div class="compounds">
+  <strong>Important Compounds:</strong>
+  <div class="element-compounds"></div>
+    
+</div>
   </div>
 </template>
 
@@ -61,6 +67,15 @@
     name: "Hydrogen", symbol: "H", atomic_number: 1, atomic_mass: 1.008,
     melting: "-259°C", boiling: "-253°C", sublimation: "N/A",
     applications: ["Rocket fuel", "Fuel cells", "Ammonia production"]
+
+    compounds: {
+    "Oxides": ["H₂O (Water)", "H₂O₂ (Hydrogen peroxide)"],
+    "Acids": ["HCl (Hydrochloric acid)", "H₂SO₄ (Sulfuric acid)", "HNO₃ (Nitric acid)"],
+    "Hydrocarbons": ["CH₄ (Methane)", "C₂H₆ (Ethane)", "C₃H₈ (Propane)"],
+    "Organic": ["C₂H₅OH (Ethanol)", "CH₃OH (Methanol)", "C₆H₁₂O₆ (Glucose)"],
+    "Hydrides": ["NaH (Sodium hydride)", "CaH₂ (Calcium hydride)"],
+    "Gases": ["NH₃ (Ammonia)", "H₂S (Hydrogen sulfide)"]
+  }
   },
   2: { 
     name: "Helium", symbol: "He", atomic_number: 2, atomic_mass: 4.0026,
