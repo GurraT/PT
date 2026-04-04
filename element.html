@@ -674,63 +674,59 @@
     melting: "N/A", boiling: "N/A", sublimation: "N/A",
     applications: ["Research"]
     }
-  }
   };
+};
 
-  function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-  }
-
-  const atomicNumber = getQueryParam('atomicNumber');
-  const data = elementsDB[atomicNumber];
-
-  if (data) {
-    const template = document.getElementById('element-template');
-    const clone = template.content.cloneNode(true);
-
-    clone.querySelector('.element-name').textContent = data.name;
-    clone.querySelector('.element-symbol').textContent = data.symbol;
-    clone.querySelector('.element-number').textContent = data.atomic_number;
-    clone.querySelector('.element-mass').textContent = data.atomic_mass;
-
-    clone.querySelector('.element-melting').textContent = data.melting;
-    clone.querySelector('.element-boiling').textContent = data.boiling;
-    clone.querySelector('.element-sublimation').textContent = data.sublimation;
-
-    const appList = clone.querySelector('.element-applications');
-    data.applications.forEach(app => {
-      const li = document.createElement('li');
-      li.textContent = app;
-      appList.appendChild(li);
-    });
-
-    document.getElementById('info-panel').appendChild(clone);
-  } else {
-    document.getElementById('info-panel').textContent = "Element not found.";
-  }
-const compoundsContainer = clone.querySelector('.element-compounds');
-
-const compoundsContainer = clone.querySelector('.element-compounds');
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
 }
+
+const atomicNumber = getQueryParam('atomicNumber');
+const data = elementsDB[atomicNumber];
+
+if (data) {
+  const template = document.getElementById('element-template');
+  const clone = template.content.cloneNode(true);
+
+  clone.querySelector('.element-name').textContent = data.name;
+  clone.querySelector('.element-symbol').textContent = data.symbol;
+  clone.querySelector('.element-number').textContent = data.atomic_number;
+  clone.querySelector('.element-mass').textContent = data.atomic_mass;
+  clone.querySelector('.element-melting').textContent = data.melting;
+  clone.querySelector('.element-boiling').textContent = data.boiling;
+  clone.querySelector('.element-sublimation').textContent = data.sublimation;
+
+  const appList = clone.querySelector('.element-applications');
+  data.applications.forEach(app => {
+    const li = document.createElement('li');
+    li.textContent = app;
+    appList.appendChild(li);
+  });
+
   const compoundsContainer = clone.querySelector('.element-compounds');
+  if (data.compounds) {
+    for (const category in data.compounds) {
+      const title = document.createElement('p');
+      title.innerHTML = `<strong>${category}:</strong>`;
+      compoundsContainer.appendChild(title);
 
-if (data.compounds) {
-  for (const category in data.compounds) {
-    const title = document.createElement('p');
-    title.innerHTML = `<strong>${category}:</strong>`;
-    compoundsContainer.appendChild(title);
+      const ul = document.createElement('ul');
+      data.compounds[category].forEach(compound => {
+        const li = document.createElement('li');
+        li.textContent = compound;
+        ul.appendChild(li);
+      });
 
-    const ul = document.createElement('ul');
-    data.compounds[category].forEach(compound => {
-      const li = document.createElement('li');
-      li.textContent = compound;
-      ul.appendChild(li);
-    });
-
-    compoundsContainer.appendChild(ul);
+      compoundsContainer.appendChild(ul);
+    }
+  } else {
+    compoundsContainer.innerHTML = "<em>No compounds listed.</em>";
   }
-}
+
+  document.getElementById('info-panel').appendChild(clone);
+} else {
+  document.getElementById('info-panel').textContent = "Element not found.";
 }
 </script>
 
