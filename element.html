@@ -672,7 +672,8 @@
     name: "Oganesson", symbol: "Og", atomic_number: 118, atomic_mass: 294,
     melting: "N/A", boiling: "N/A", sublimation: "N/A",
     applications: ["Research"]
-  },
+    }
+  }
   };
 
   function getQueryParam(param) {
@@ -710,6 +711,24 @@
 const compoundsContainer = clone.querySelector('.element-compounds');
 
 const compoundsContainer = clone.querySelector('.element-compounds');
+}
+  const compoundsContainer = clone.querySelector('.element-compounds');
+
+if (data.compounds) {
+  for (const category in data.compounds) {
+    const title = document.createElement('p');
+    title.innerHTML = `<strong>${category}:</strong>`;
+    compoundsContainer.appendChild(title);
+
+    const ul = document.createElement('ul');
+    data.compounds[category].forEach(compound => {
+      const li = document.createElement('li');
+      li.textContent = compound;
+      ul.appendChild(li);
+    });
+
+    compoundsContainer.appendChild(ul);
+  }
 }
 }
 </script>
