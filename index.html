@@ -1,108 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Periodic Table</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f5f5f5;
-    }
-
-    h1 {
-      margin: 20px;
-    }
-
-    .table {
-      display: grid;
-      grid-template-columns: repeat(18, 60px);
-      gap: 5px;
-      justify-content: center;
-    }
-
-    .element {
-      border: 1px solid #333;
-      padding: 8px;
-      background: white;
-      font-size: 12px;
-    }
-
-    .symbol {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .number {
-      font-size: 10px;
-      text-align: left;
-    }
-
-    /* Colors by type */
-    .alkali { background: #ff9999; }
-    .alkaline { background: #ffcc99; }
-    .nonmetal { background: #99ccff; }
-    .noble { background: #c299ff; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Periodic Table</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<h1>Periodic Table</h1>
-
+<h1>Neon Periodic Table</h1>
 <div class="table">
 
   <!-- Period 1 -->
-  <div class="element nonmetal" style="grid-column:1;">
-    <div class="number">1</div>
-    <div class="symbol">H</div>
-  </div>
-
-  <div class="element noble" style="grid-column:18;">
-    <div class="number">2</div>
-    <div class="symbol">He</div>
-  </div>
+  <div class="element nonmetal" style="grid-column:1;">H<br><span class="number">1</span></div>
+  <div class="element noble" style="grid-column:18;">He<br><span class="number">2</span></div>
 
   <!-- Period 2 -->
-  <div class="element alkali" style="grid-column:1;">
-    <div class="number">3</div>
-    <div class="symbol">Li</div>
-  </div>
+  <div class="element alkali" style="grid-column:1;">Li<br><span class="number">3</span></div>
+  <div class="element alkaline" style="grid-column:2;">Be<br><span class="number">4</span></div>
+  <div class="element nonmetal" style="grid-column:13;">B<br><span class="number">5</span></div>
+  <div class="element nonmetal" style="grid-column:14;">C<br><span class="number">6</span></div>
+  <div class="element nonmetal" style="grid-column:15;">N<br><span class="number">7</span></div>
+  <div class="element nonmetal" style="grid-column:16;">O<br><span class="number">8</span></div>
+  <div class="element halogen" style="grid-column:17;">F<br><span class="number">9</span></div>
+  <div class="element noble" style="grid-column:18;">Ne<br><span class="number">10</span></div>
 
-  <div class="element alkaline" style="grid-column:2;">
-    <div class="number">4</div>
-    <div class="symbol">Be</div>
-  </div>
+  <!-- Period 3 -->
+  <div class="element alkali" style="grid-column:1;">Na<br><span class="number">11</span></div>
+  <div class="element alkaline" style="grid-column:2;">Mg<br><span class="number">12</span></div>
+  <div class="element metal" style="grid-column:13;">Al<br><span class="number">13</span></div>
+  <div class="element nonmetal" style="grid-column:14;">Si<br><span class="number">14</span></div>
+  <div class="element nonmetal" style="grid-column:15;">P<br><span class="number">15</span></div>
+  <div class="element nonmetal" style="grid-column:16;">S<br><span class="number">16</span></div>
+  <div class="element halogen" style="grid-column:17;">Cl<br><span class="number">17</span></div>
+  <div class="element noble" style="grid-column:18;">Ar<br><span class="number">18</span></div>
 
-  <div class="element nonmetal" style="grid-column:13;">
-    <div class="number">5</div>
-    <div class="symbol">B</div>
-  </div>
-
-  <div class="element nonmetal" style="grid-column:14;">
-    <div class="number">6</div>
-    <div class="symbol">C</div>
-  </div>
-
-  <div class="element nonmetal" style="grid-column:15;">
-    <div class="number">7</div>
-    <div class="symbol">N</div>
-  </div>
-
-  <div class="element nonmetal" style="grid-column:16;">
-    <div class="number">8</div>
-    <div class="symbol">O</div>
-  </div>
-
-  <div class="element nonmetal" style="grid-column:17;">
-    <div class="number">9</div>
-    <div class="symbol">F</div>
-  </div>
-
-  <div class="element noble" style="grid-column:18;">
-    <div class="number">10</div>
-    <div class="symbol">Ne</div>
-  </div>
+  <!-- You can continue adding all elements in this style -->
 
 </div>
-
 </body>
 </html>
