@@ -1,51 +1,148 @@
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
+ {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1 {
-  padding: 20px;
-  color: #0ff;
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
 
-.table {
-  display: grid;
-  grid-template-columns: repeat(18, 60px);
-  gap: 5px;
-  justify-content: center;
-  margin: 20px auto;
-}
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
 
-.element {
-  border: 1px solid #0ff;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
-}
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
 
-.element:hover {
-  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff;
-  transform: scale(1.1);
-}
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
 
-/* Colors by element type */
-.alkali { color: #ff00ff; border-color: #ff00ff; }
-.alkaline { color: #00ff00; border-color: #00ff00; }
-.nonmetal { color: #00ffff; border-color: #00ffff; }
-.noble { color: #ffff00; border-color: #ffff00; }
-.halogen { color: #ff9900; border-color: #ff9900; }
-.metal { color: #ff0066; border-color: #ff0066; }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
 
-.number {
-  font-size: 10px;
-  display: block;
-}
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, minmax(50px, 1fr));
+            gap: 3px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .element {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 4px;
+            min-height: 60px;
+        }
+
+        .element:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            z-index: 10;
+        }
+
+        .element .number {
+            font-size: 0.65rem;
+            opacity: 0.9;
+        }
+
+        .element .symbol {
+            font-size: 1.4rem;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .element .name {
+            font-size: 0.5rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .element .mass {
+            font-size: 0.5rem;
+            opacity: 0.7;
+        }
+
+        /* Kategorifärger */
+        .alkali-metal { background: linear-gradient(145deg, #ff6b6b, #ee5a5a); }
+        .alkaline-earth { background: linear-gradient(145deg, #ffd93d, #f0c929); color: #333; }
+        .transition-metal { background: linear-gradient(145deg, #6bcb77, #5ab366); }
+        .post-transition { background: linear-gradient(145deg, #4d96ff, #3a82e8); }
+        .metalloid { background: linear-gradient(145deg, #9b59b6, #8e44ad); }
+        .nonmetal { background: linear-gradient(145deg, #00d2d3, #00b8b9); }
+        .halogen { background: linear-gradient(145deg, #ff9ff3, #f38be6); }
+        .noble-gas { background: linear-gradient(145deg, #a29bfe, #8c82fc); }
+        .lanthanide { background: linear-gradient(145deg, #fd79a8, #e66b99); }
+        .actinide { background: linear-gradient(145deg, #fdcb6e, #f0be5c); color: #333; }
+
+        .empty {
+            background: transparent;
+        }
+
+        .lanthanide-placeholder,
+        .actinide-placeholder {
+            font-size: 0.7rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .separator {
+            grid-column: 1 / -1;
+            height: 20px;
+        }
+
+        .lanthanide-row,
+        .actinide-row {
+            grid-column: 4 / 18;
+            display: grid;
+            grid-template-columns: repeat(14, 1fr);
+            gap: 3px;
+        }
+
+        .row-label {
+            grid-column: 1 / 4;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .periodic-table {
+                grid-template-columns: repeat(18, minmax(35px, 1fr));
+            }
+            .element .symbol { font-size: 1rem; }
+            .element .name { display: none; }
+        }
+    </style>
