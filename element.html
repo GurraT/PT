@@ -4,11 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Element Details</title>
+
 <style>
-  body { font-family: sans-serif; padding: 20px; }
-  .element-card { border: 1px solid #333; padding: 15px; border-radius: 8px; width: 300px; background: #f8f8f8; }
+  body { 
+    font-family: sans-serif; 
+    padding: 20px; 
+  }
+
+  .element-card { 
+    border: 1px solid #333; 
+    padding: 15px; 
+    border-radius: 8px; 
+    width: 320px; 
+    background: #f8f8f8; 
+  }
+
+  .element-card p {
+    margin: 6px 0;
+  }
+
+  .applications {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
 </style>
 </head>
+
 <body>
 
 <h1>Element Details</h1>
@@ -16,28 +37,70 @@
 <template id="element-template">
   <div class="element-card">
     <h2 class="element-name"></h2>
-    <p>Symbol: <span class="element-symbol"></span></p>
-    <p>Atomic Number: <span class="element-number"></span></p>
-    <p>Atomic Mass: <span class="element-mass"></span></p>
+
+    <p><strong>Symbol:</strong> <span class="element-symbol"></span></p>
+    <p><strong>Atomic Number:</strong> <span class="element-number"></span></p>
+    <p><strong>Atomic Mass:</strong> <span class="element-mass"></span></p>
+
+    <p><strong>Melting Point:</strong> <span class="element-melting"></span></p>
+    <p><strong>Boiling Point:</strong> <span class="element-boiling"></span></p>
+    <p><strong>Sublimation Point:</strong> <span class="element-sublimation"></span></p>
+
+    <div class="applications">
+      <strong>Applications:</strong>
+      <ul class="element-applications"></ul>
+    </div>
   </div>
 </template>
 
 <div id="info-panel"></div>
 
 <script>
-  // Mock "database" (replace with fetch from backend if needed)
   const elementsDB = {
-    1: { name: "Hydrogen", symbol: "H", atomic_number: 1, atomic_mass: 1.008 },
-    2: { name: "Helium", symbol: "He", atomic_number: 2, atomic_mass: 4.0026 },
-    3: { name: "Lithium", symbol: "Li", atomic_number: 3, atomic_mass: 6.94 },
-    4: { name: "Beryllium", symbol: "Be", atomic_number: 4, atomic_mass: 9.0122 },
-    5: { name: "Boron", symbol: "B", atomic_number: 5, atomic_mass: 10.81 },
-    6: { name: "Carbon", symbol: "C", atomic_number: 6, atomic_mass: 12.011 },
-    7: { name: "Nitrogen", symbol: "N", atomic_number: 7, atomic_mass: 14.007 },
-    8: { name: "Oxygen", symbol: "O", atomic_number: 8, atomic_mass: 15.999 },
+    1: { 
+      name: "Hydrogen", symbol: "H", atomic_number: 1, atomic_mass: 1.008,
+      melting: "-259°C",
+      boiling: "-253°C",
+      sublimation: "N/A",
+      applications: ["Rocket fuel", "Fuel cells", "Ammonia production"]
+    },
+    2: { 
+      name: "Helium", symbol: "He", atomic_number: 2, atomic_mass: 4.0026,
+      melting: "-272°C (under pressure)",
+      boiling: "-269°C",
+      sublimation: "N/A",
+      applications: ["Balloons", "Cryogenics", "MRI cooling"]
+    },
+    3: { 
+      name: "Lithium", symbol: "Li", atomic_number: 3, atomic_mass: 6.94,
+      melting: "180.5°C",
+      boiling: "1342°C",
+      sublimation: "N/A",
+      applications: ["Batteries", "Alloys", "Medicine"]
+    },
+    6: { 
+      name: "Carbon", symbol: "C", atomic_number: 6, atomic_mass: 12.011,
+      melting: "N/A",
+      boiling: "N/A",
+      sublimation: "3550°C",
+      applications: ["Steel", "Fuel", "Organic chemistry"]
+    },
+    7: { 
+      name: "Nitrogen", symbol: "N", atomic_number: 7, atomic_mass: 14.007,
+      melting: "-210°C",
+      boiling: "-196°C",
+      sublimation: "N/A",
+      applications: ["Fertilizers", "Cooling", "Food packaging"]
+    },
+    8: { 
+      name: "Oxygen", symbol: "O", atomic_number: 8, atomic_mass: 15.999,
+      melting: "-218°C",
+      boiling: "-183°C",
+      sublimation: "N/A",
+      applications: ["Breathing", "Steelmaking", "Medical use"]
+    },
   };
 
-  // Helper to get query parameter
   function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -49,13 +112,28 @@
   if (data) {
     const template = document.getElementById('element-template');
     const clone = template.content.cloneNode(true);
+
     clone.querySelector('.element-name').textContent = data.name;
     clone.querySelector('.element-symbol').textContent = data.symbol;
     clone.querySelector('.element-number').textContent = data.atomic_number;
     clone.querySelector('.element-mass').textContent = data.atomic_mass;
+
+    clone.querySelector('.element-melting').textContent = data.melting;
+    clone.querySelector('.element-boiling').textContent = data.boiling;
+    clone.querySelector('.element-sublimation').textContent = data.sublimation;
+
+    const appList = clone.querySelector('.element-applications');
+    data.applications.forEach(app => {
+      const li = document.createElement('li');
+      li.textContent = app;
+      appList.appendChild(li);
+    });
 
     document.getElementById('info-panel').appendChild(clone);
   } else {
     document.getElementById('info-panel').textContent = "Element not found.";
   }
 </script>
+
+</body>
+</html>
