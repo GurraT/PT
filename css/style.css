@@ -150,32 +150,21 @@
 
 /* Small screens (mobile) */
 @media screen and (max-width: 768px) {
-  .table {
+  .periodic-table {
     grid-template-columns: repeat(9, 1fr); /* 2x smaller grid */
   }
 
-  .element {
-    padding: 8px;
-    font-size: 12px;
+            .element .symbol { font-size: 0.2rem; }
+            .element .name { display: none; }
   }
 
-  h1 {
-    font-size: 24px;
-  }
 }
 
 /* Extra small screens */
 @media screen and (max-width: 480px) {
-  .table {
+  .periodic-table {
     grid-template-columns: repeat(6, 1fr); /* Very narrow screens */
   }
-
-  .element {
-    padding: 6px;
-    font-size: 10px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
+            .element .symbol { font-size: 0.1rem; }
+            .element .name { display: none; }
 }
