@@ -138,6 +138,8 @@
             opacity: 0.7;
         }
 
+/* ---------------------------- */
+/* Responsive Design */
         @media (max-width: 900px) {
             .periodic-table {
                 grid-template-columns: repeat(18, minmax(35px, 1fr));
@@ -145,4 +147,35 @@
             .element .symbol { font-size: 1rem; }
             .element .name { display: none; }
         }
-    </style>
+
+/* Small screens (mobile) */
+@media screen and (max-width: 768px) {
+  .table {
+    grid-template-columns: repeat(9, 1fr); /* 2x smaller grid */
+  }
+
+  .element {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .table {
+    grid-template-columns: repeat(6, 1fr); /* Very narrow screens */
+  }
+
+  .element {
+    padding: 6px;
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
