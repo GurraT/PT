@@ -1,1 +1,51 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
 
+h1 {
+  padding: 20px;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(18, 60px);
+  gap: 5px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.element {
+  border: 1px solid #0ff;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.element:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff;
+  transform: scale(1.1);
+}
+
+/* Colors by element type */
+.alkali { color: #ff00ff; border-color: #ff00ff; }
+.alkaline { color: #00ff00; border-color: #00ff00; }
+.nonmetal { color: #00ffff; border-color: #00ffff; }
+.noble { color: #ffff00; border-color: #ffff00; }
+.halogen { color: #ff9900; border-color: #ff9900; }
+.metal { color: #ff0066; border-color: #ff0066; }
+
+.number {
+  font-size: 10px;
+  display: block;
+}
