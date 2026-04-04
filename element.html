@@ -710,6 +710,24 @@
   } else {
     document.getElementById('info-panel').textContent = "Element not found.";
   }
+const compoundsContainer = clone.querySelector('.element-compounds');
+
+if (data.compounds) {
+  for (const category in data.compounds) {
+    const title = document.createElement('p');
+    title.innerHTML = `<strong>${category}:</strong>`;
+    compoundsContainer.appendChild(title);
+
+    const ul = document.createElement('ul');
+    data.compounds[category].forEach(compound => {
+      const li = document.createElement('li');
+      li.textContent = compound;
+      ul.appendChild(li);
+    });
+
+    compoundsContainer.appendChild(ul);
+  }
+}
 </script>
 
 </body>
